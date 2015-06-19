@@ -1,0 +1,70 @@
+import "c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\PlatformSDK\include\prsht.idl";
+import "c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\PlatformSDK\include\mshtml.idl";
+import "c:\program files\microsoft visual studio .net 2003\vc7\platformsdk\include\dimm.idl";
+import "c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\PlatformSDK\include\mshtmhst.idl";
+import "c:\program files\microsoft visual studio .net 2003\vc7\platformsdk\include\docobj.idl";
+import "c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\PlatformSDK\include\exdisp.idl";
+import "c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\PlatformSDK\include\objsafe.idl";
+
+[
+	object,
+	uuid(12F0C3AF-5936-4601-A810-F0326F805952),
+	dual,
+	helpstring("IArpScanner Interface"),
+	pointer_default(unique)
+] 
+#line 50 "c:\\documents and settings\\tbruinsma\\desktop\\arpsweep\\arpscanner.h"
+interface IArpScanner : IDispatch {
+#line 52 "c:\\documents and settings\\tbruinsma\\desktop\\arpsweep\\arpscanner.h"
+	[propget,id(1),helpstring("property StartIP")] HRESULT  StartIP([out,retval] BSTR *pVal );
+	[propput,id(1),helpstring("property StartIP")] HRESULT  StartIP([in] BSTR newVal);
+	[propget,id(2),helpstring("property EndIP")] HRESULT  EndIP([out,retval] BSTR *pVal );
+	[propput,id(2),helpstring("property EndIP")] HRESULT  EndIP([in] BSTR newVal);
+	[propput,id(12),helpstring("property Key")] HRESULT  Key([in] LONG newVal);
+	[propget,id(3),helpstring("property Adapter")] HRESULT  Adapter([out,retval] LONG *pVal);
+	[propput,id(3),helpstring("property Adapter")] HRESULT  Adapter([in] LONG newVal);
+	[propget,id(4),helpstring("property HostCount")] HRESULT  HostCount([out,retval] LONG *pVal);
+	[id(5),helpstring("method StartScan")] HRESULT  StartScan();
+	[propget,id(6),helpstring("property AdapterCount")] HRESULT  AdapterCount([out,retval] LONG *pVal);
+	[id(7),helpstring("method GetAdapterInfo")] HRESULT  GetAdapterInfo([in] LONG adapter, [out] BSTR *name , [out] BSTR *description , [out] BSTR *ip , [out] BSTR *mac , [out,retval] BOOL *ok);
+	[id(8),helpstring("method Scan")] HRESULT  Scan([in] LONG adapter, [in] BSTR ip, [in] BSTR mac, [out,retval] LONG *response);
+	[id(9),helpstring("method StopScan")] HRESULT  StopScan();
+	[id(10),helpstring("method LookupAdapterName")] HRESULT  LookupAdapterName([in] BSTR AdapterName, [out,retval] LONG *Adapter);
+	[propget,id(11),helpstring("property ScannedHostCount")] HRESULT  ScannedHostCount([out,retval] LONG *pVal);
+};
+
+
+[ version(1.0), uuid(049F9861-0AC4-4FC3-9E7D-DEB15387682C), helpstring("ArpSweep 1.0") ]
+library ArpSweep
+{
+	importlib("stdole2.tlb");
+	importlib("olepro32.dll");
+
+	[
+		uuid(59753AB6-4CD0-40D2-9EFC-FA452CBF2051),
+		helpstring("_IArpScannerEvents Interface")
+	] 
+#line 77 "c:\\documents and settings\\tbruinsma\\desktop\\arpsweep\\arpscanner.h"
+	dispinterface _IArpScannerEvents {
+	properties:
+
+	methods:
+		[id(1),helpstring("method OnScanHost")] HRESULT  OnScanHost([in] BSTR ip, [in]BSTR mac, [in]LONG response_time);
+		[id(2),helpstring("method OnScanStart")] HRESULT  OnScanStart();
+		[id(3),helpstring("method OnStartStop")] HRESULT  OnStartStop();
+		[id(4),helpstring("method OnScanEvent")] HRESULT  OnScanError([in] LONG code);
+	};
+
+	[
+		version(1.0),
+		uuid(F6CDAC27-27C7-4030-BAC7-E3E7143DDE0B),
+		helpstring("ArpScanner Class")
+	] 
+#line 98 "c:\\documents and settings\\tbruinsma\\desktop\\arpsweep\\arpscanner.h"
+	coclass CArpScanner {
+		interface IArpScanner;
+		[default, source]	interface _IArpScannerEvents;
+	};
+
+}
+

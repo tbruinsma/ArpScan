@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArpSweep", "ArpSweep.vcproj", "{43E2FED6-DD12-4478-A545-158BBB20C6D8}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArpSweepPS", "ArpSweepPS.vcproj", "{343A815E-80AA-47E2-AA3A-7957EF625755}"
+	ProjectSection(ProjectDependencies) = postProject
+		{43E2FED6-DD12-4478-A545-158BBB20C6D8} = {43E2FED6-DD12-4478-A545-158BBB20C6D8}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{43E2FED6-DD12-4478-A545-158BBB20C6D8}.Debug.ActiveCfg = Debug|Win32
+		{43E2FED6-DD12-4478-A545-158BBB20C6D8}.Debug.Build.0 = Debug|Win32
+		{43E2FED6-DD12-4478-A545-158BBB20C6D8}.Release.ActiveCfg = Release|Win32
+		{43E2FED6-DD12-4478-A545-158BBB20C6D8}.Release.Build.0 = Release|Win32
+		{343A815E-80AA-47E2-AA3A-7957EF625755}.Debug.ActiveCfg = Debug|Win32
+		{343A815E-80AA-47E2-AA3A-7957EF625755}.Release.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

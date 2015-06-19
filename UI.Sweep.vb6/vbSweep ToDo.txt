@@ -1,0 +1,23 @@
+x Add Show Time/Date
+x Add resolve host code
+	Add right click to resolve
+	Add save to file
+	Add persist to save and reload the current items
+	Add Clear List
+
+VERSION 1 Cut
+	
+	Add Load List
+	Add MAC Ping Sweep for known hosts
+	
+	Add Passive for unknown hosts with sweep for known hosts
+	
+	Add ip/mac map monitor
+	Add threashold for alarm
+		- when offline > x hours
+		- when mac has new ip drop
+		- when 
+	
+	Add mac tracking for ip/mac pair
+
+VERSION 1.5 Cut
